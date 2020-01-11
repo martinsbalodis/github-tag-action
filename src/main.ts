@@ -68,7 +68,7 @@ async function run() {
 
     if (hasTag) {
       const previousTagSha = (
-        await exec("git rev-list --tags --max-count=1")
+        await exec("git rev-list --tags --topo-order --max-count=1")
       ).stdout.trim();
       tag = (await exec(`git describe --tags ${previousTagSha}`)).stdout.trim();
       logs = (
